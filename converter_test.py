@@ -5,8 +5,8 @@ from converters.teststand_xml_converter import TestStandXMLConverter
 def main():
 
      # 1. Create an instance of WATS
-    url = "https://debug.wats.com/"
-    token = "am9uX3B5dGhvbl9hcGk6XmRxMHpKNUFubWU3MHRrNXRhNmhNSmhIY256bThk"
+    url = "https://YOURSERVER.wats.com/"
+    token = "YOURTOKEN"
     wats = WATS(url, token)
 
     # Define filepath
