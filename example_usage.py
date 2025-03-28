@@ -44,8 +44,8 @@ def main():
     converter = TestStandXMLConverter()
     
     # Create an instance of WATS
-    url = "https://debug.wats.com/"
-    token = "am9uX3B5dGhvbl9hcGk6XmRxMHpKNUFubWU3MHRrNXRhNmhNSmhIY256bThk"
+    url = "https://YOURSERVER.wats.com/"
+    token = "YOURTOKEN"
     wats = WATS(url, token)
     
     for file in searcher.find_matching_files():
