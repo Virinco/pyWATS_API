@@ -13,7 +13,7 @@ class FileSearcher:
     
     def find_matching_files(self) -> Generator[str, None, None]:
         """
-        Generator som itererer gjennom alle filer i path og returnerer de som matcher pattern.
+        Generator iterating all files in path and return those that matches pattern.
         """
         if not os.path.isdir(self.path):
             raise ValueError(f"{self.path} er ikke en gyldig katalog")
@@ -33,8 +33,8 @@ def main():
     else:
         parser = argparse.ArgumentParser(description="Search for files based on regex and convert them")
         parser.add_argument("path", type=str, help="Path to the directory where the files should be searched")
-        parser.add_argument("pattern", type=str, help="Regex-pattern to filtrate files")
-        parser.add_argument("ppa", type=str, help="post process action after submitting report")
+        parser.add_argument("pattern", type=str, help="Regex-pattern to filter files")
+        parser.add_argument("ppa", type=str, help="Post process action after submitting report")
         args = parser.parse_args()
         path = args.path
         pattern = args.pattern
