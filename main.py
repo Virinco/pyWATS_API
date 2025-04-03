@@ -23,37 +23,11 @@ def main():
     token = "YOURTOKEN"
     wats = WATS(url, token)
 
-    tz = timezone.utc
-    tz = ZoneInfo(key='Europe/Paris')
-
-    start_date = datetime(2025,3,12,8,0,0,0,tzinfo=tz)
-
-
-    for d in range(1):
-        dt = start_date
-        for i in range(60*8):
-            sn = str(d+i)
-            dt+= timedelta(seconds=60)
-            uut = create_report(sn, dt, 50)
-            # 6. Submit the report to WATS    
-            wats.submit_report(uut)
-            print(i)
-                        
-        start_date = start_date + timedelta(days=1)
-
-    # 6. Submit the report to WATS    
-    #wats.submit_report(uut)
-
-
-
-
-def create_report(sn: str, start_date: datetime, exec_time: float ):
-        # 2. Create a UUTReport object
+    # 2. Create a UUTReport object
     uut = UUTReport(pn="OEE_TEST_6",sn=sn,rev="1.0", result="P",station_name="OEE_STATION_6",process_code=10, location="Drammen",purpose="APITest",
                     info=UUTInfo(operator="Operator",batch_number="B1", fixture_id="Fixture"))
     
-    
-    
+        
     uut.root.sequence.path = "RootSequencePath"
     uut.root.sequence.file_name = "RootSequenceName"
     uut.root.sequence.version = "1.0"
@@ -78,7 +52,7 @@ def create_report(sn: str, start_date: datetime, exec_time: float ):
     mns.add_measurement(name="Mesurement 1", value=3.14, unit="V", comp_op=CompOp.GELE, low_limit=0,high_limit=10, status="P")
     mns.add_measurement(name="Mesurement 2", value=6.28, unit="V", comp_op=CompOp.GELE, low_limit=0,high_limit=3, status="F")
 
-    return uut
+    wats.submit_report(uut)
 
 
 # Entry point check
