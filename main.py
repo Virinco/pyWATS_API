@@ -24,8 +24,8 @@ def main():
     wats = WATS(url, token)
 
     # 2. Create a UUTReport object
-    uut = UUTReport(pn="OEE_TEST_6",sn=sn,rev="1.0", result="P",station_name="OEE_STATION_6",process_code=10, location="Drammen",purpose="APITest",
-                    info=UUTInfo(operator="Operator",batch_number="B1", fixture_id="Fixture"))
+    uut = UUTReport(pn="PartNumber",sn="12345678",rev="1.0", result="P",station_name="STATION_01",process_code=10, location="Drammen",purpose="APITest",
+                    info=UUTInfo(operator="Operator",batch_number="B1", fixture_id="Fixture#01"))
     
         
     uut.root.sequence.path = "RootSequencePath"
